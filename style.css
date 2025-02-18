@@ -96,11 +96,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* overflow: hidden; */
 }
 
 .wrapper .form-box {
     width: 100%;
     padding: 40px;
+}
+
+.wrapper .form-box.login {
+    /* display: none !important; */
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transform: translateX(400px);
 }
 
 .wrapper .close {
@@ -116,6 +126,7 @@ header {
     overflow: hidden;
     cursor: pointer;
     z-index: 1;
+    border: 1px solid rgba(255, 255, 255, .5);
     border-radius: 0 20px 0 20px;
 }
 
