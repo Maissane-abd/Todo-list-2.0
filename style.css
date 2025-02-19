@@ -15,6 +15,7 @@ body {
     background: url('Space-Background-Images.jpg') no-repeat center center/cover;
 }
 
+
 header {
     position: fixed;
     top: 0;
@@ -22,16 +23,16 @@ header {
     width: 100%;
     padding: 20px 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     z-index: 99;
 }
 
-.logo {
+/* .logo {
     font-size: 2em;
     color: #fff;
     user-select: none;
-}
+} */
 
 .navigation a {
     position : relative;
@@ -96,6 +97,7 @@ header {
     overflow: hidden;
     transform: scale(0);
     transition: transform .5s, height 0.2s ease;
+    margin-top: 50px; 
 }
 
 .wrapper.active-popup {
@@ -270,4 +272,48 @@ header {
     font-size: 0.875rem;
     display: none;
     margin-top: 0.625rem;
+}
+
+/* Ajoutez cette section à la fin de votre fichier CSS */
+
+/* Styles pour les écrans de taille inférieure à 768px (tablettes et mobiles) */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px; /* Réduire le padding du header */
+    }
+
+    .navigation a {
+        margin-left: 20px; /* Réduire l'espacement entre les liens de navigation */
+        font-size: 1em; /* Réduire la taille de la police des liens de navigation */
+    }
+
+    .navigation .btnLogin-popup {
+        width: 100px; /* Réduire la largeur du bouton de connexion */
+        height: 40px; /* Réduire la hauteur du bouton de connexion */
+        font-size: 1em; /* Réduire la taille de la police du bouton de connexion */
+        margin-left: 20px; /* Réduire l'espacement entre le bouton de connexion et les liens de navigation */
+    }
+}
+
+/* Styles pour les écrans de taille inférieure à 480px (mobiles) */
+@media (max-width: 480px) {
+    header {
+        padding: 20px 5px; /* Réduire encore plus le padding du header */
+    }
+
+    .navigation a {
+        margin-left: 10px; /* Réduire encore plus l'espacement entre les liens de navigation */
+        font-size: 0.9em; /* Réduire encore plus la taille de la police des liens de navigation */
+    }
+
+    .navigation .btnLogin-popup {
+        width: 80px; /* Réduire encore plus la largeur du bouton de connexion */
+        height: 35px; /* Réduire encore plus la hauteur du bouton de connexion */
+        font-size: 0.9em; /* Réduire encore plus la taille de la police du bouton de connexion */
+        margin-left: 10px; /* Réduire encore plus l'espacement entre le bouton de connexion et les liens de navigation */
+    }
+
+    .wrapper {
+        margin-top: -50px; 
+    }
 }
