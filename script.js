@@ -3,9 +3,11 @@ const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
 const btnPopup = document.querySelector('.btnLogin-popup');
 const btnClose = document.querySelector('.close');
+const registerForm = document.querySelector('.form-register');
 
 registerLink.addEventListener('click', () => {
     wrapper.classList.add('active');
+    localStorage.clear();
 });
 
 loginLink.addEventListener('click', () => {
@@ -20,23 +22,33 @@ btnClose.addEventListener('click', () => {
     wrapper.classList.remove('active-popup');
 });
 
-document.querySelector(".login").addEventListener("submit", (event) => {
-    event.preventDefault();
+registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log('Form submitted');
 
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
+    const username = document.getElementById('username-register').value.trim();
+    const email = document.getElementById('email-register').value.trim();
+    const password = document.getElementById('password-register').value.trim();
+
+    if ( username === "" || email === "" || password === "" ) {
+        document.querySelector('.error').style.display = 'block';
+        return;
+    }
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    let validUser = users.find(user => 
-        (user.email === email || user.pseudo === email) && user.password === password
-    );
-
-    if (validUser) {
-        localStorage.setItem("currentUser", JSON.stringify(validUser));
-
-        window.location.href = "#";
-    } else {
-        document.querySelector(".errorMsg").style.display = "block";
+    let userExists = users.some(user => user.email === email || user.username === username);
+    if (userExists) {
+        alert("This email or username already exits, Choose another one please.");
+        return;
     }
+
+    let newUser = { id: Date.now(), email, username, password };
+    users.push(newUser);
+    
+    localStorage.setItem("users", JSON.stringify(users));
+
+    console.log("User save :", newUser);
 });
+
+    

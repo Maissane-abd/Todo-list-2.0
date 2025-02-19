@@ -258,7 +258,7 @@ header {
     text-decoration: underline;
 }
 
-.errorMsg {
+.error {
     color: #ff4c4c;
     font-size: 0.875rem;
     display: none;
