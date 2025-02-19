@@ -33,6 +33,8 @@ registerForm.addEventListener('submit', (e) => {
     if ( username === "" || email === "" || password === "" ) {
         document.querySelector('.error').style.display = 'block';
         return;
+    } else {
+        document.querySelector('.success').style.display = 'block';
     }
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -49,6 +51,12 @@ registerForm.addEventListener('submit', (e) => {
     localStorage.setItem("users", JSON.stringify(users));
 
     console.log("User save :", newUser);
+
+    e.target.reset();
+
+    setTimeout(() => {
+        wrapper.classList.remove("active");
+    }, 2000);
 });
 
     

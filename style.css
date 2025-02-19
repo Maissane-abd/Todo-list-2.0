@@ -264,3 +264,10 @@ header {
     display: none;
     margin-top: 0.625rem;
 }
+
+.success {
+    color: #00ff00;
+    font-size: 0.875rem;
+    display: none;
+    margin-top: 0.625rem;
+}
