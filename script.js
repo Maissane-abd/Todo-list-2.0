@@ -3,7 +3,8 @@ const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
 const btnPopup = document.querySelector('.btnLogin-popup');
 const btnClose = document.querySelector('.close');
-const registerForm = document.querySelector('.form-register');
+const registerForm = document.querySelector('.form-box.register form');
+const loginForm = document.querySelector('.form-box.login form');
 
 registerLink.addEventListener('click', () => {
     wrapper.classList.add('active');
@@ -58,5 +59,33 @@ registerForm.addEventListener('submit', (e) => {
         wrapper.classList.remove("active");
     }, 2000);
 });
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if (email === "" || password === "") {
+        document.querySelector('.error').style.display = 'block';
+        return;
+    } else {
+        document.querySelector('.success').style.display = 'block';
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    let validUser = users.find(user => user.email === email && user.password === password);
+
+    if (validUser) {
+
+        setTimeout(() => {
+            window.location.href = "todo.html";
+        }, 1000);
+    } else {
+        document.querySelector('.error').style.display = 'block';
+    }
+});
+
 
     
