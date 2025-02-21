@@ -97,7 +97,7 @@ loginForm.addEventListener('submit', (e) => {
     if (validUser) {
         // Redirection vers la page "todo.html" après une seconde si l'utilisateur est authentifié
         setTimeout(() => {
-            window.location.href = "todo.html";
+            window.location.href = "Todo.html";
         }, 1000);
     } else {
         // Affichage d'un message d'erreur si les identifiants sont incorrects
